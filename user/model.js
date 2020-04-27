@@ -5,7 +5,7 @@ const User = db.define(
   "user",
   {
     name: {
-      tpe: Sequelize.STRING,
+      type: Sequelize.STRING,
       allownull: false,
     },
     password: {

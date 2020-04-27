@@ -1,10 +1,13 @@
 const express = require("express")
 const cors = require("cors")
-const db = require("./db")
+const userRouter = require("./user/router")
+
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+app.use(userRouter)
 
 const port = process.env.PORT || 4000
 
