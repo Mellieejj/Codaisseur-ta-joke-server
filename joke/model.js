@@ -1,23 +1,22 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
 
-const User = db.define(
-  "user",
+const Joke = db.define(
+  "joke",
   {
-    name: {
+    setup: {
       type: Sequelize.STRING,
-      unique: true,
       allownull: false,
     },
-    password: {
+    punchline: {
       type: Sequelize.STRING,
       allownull: false,
     },
   },
   {
     timestamps: false,
-    tablename: "users",
+    tablename: "jokes",
   }
 );
 
-module.exports = User;
+module.exports = Joke;
