@@ -26,3 +26,5 @@ router.get("/jokes", async(request, response, next) =>{
     next(error)
   }
 })
+
+module.exports = router

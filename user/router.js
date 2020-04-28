@@ -4,14 +4,12 @@ const { Router } = require("express");
 
 const router = Router();
 
-router.post("/user", async (request, response, next) => {
+router.post("/users", async (request, response, next) => {
   try {
     const { password, name } = request.body;
 
     if (name.length === 0) {
-      return response
-        .status(400)
-        .send({ message: "Name can't be empty" });
+      return response.status(400).send({ message: "Name can't be empty" });
     } else if (password.length < 8) {
       return response
         .status(400)
@@ -25,7 +23,9 @@ router.post("/user", async (request, response, next) => {
       response.send(person);
     }
   } catch (error) {
-    next(error);
+    response.status(400).send({
+      message: "This username is already in use.",
+    });
   }
 });
 
