@@ -8,10 +8,10 @@ router.post("/user", async (request, response, next) => {
   try {
     const { password, name } = request.body;
 
-    if (!name || !password) {
+    if (name.length === 0) {
       return response
         .status(400)
-        .send({ message: "Please supply a valid name and password" });
+        .send({ message: "Name can't be empty" });
     } else if (password.length < 8) {
       return response
         .status(400)
